@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Dashboard({ showNotification, updateInfo, onInstallUpdate }) {
-  const [files, setFiles] = useState([]);
-
+function Dashboard({ showNotification, updateInfo, onInstallUpdate, onStartSorting }) {
   const handleSendNotification = () => {
     if (window.electronAPI) {
       window.electronAPI.showNotification({
@@ -36,7 +34,7 @@ function Dashboard({ showNotification, updateInfo, onInstallUpdate }) {
           <div className="card-icon">📁</div>
           <h3>File Management</h3>
           <p>Organize and sort your files efficiently</p>
-          <button className="card-button" onClick={() => showNotification('File manager coming soon!', 'info')}>
+          <button className="card-button" onClick={onStartSorting}>
             Open Files
           </button>
         </div>

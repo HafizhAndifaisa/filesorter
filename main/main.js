@@ -3,6 +3,7 @@ const path = require('path');
 const { createMenu } = require('./menu');
 const { initUpdater } = require('./updater');
 const { setupNotifications } = require('./notifications');
+const { setupFileSorter } = require('./fileSorter');
 
 let mainWindow;
 
@@ -40,6 +41,7 @@ app.whenReady().then(() => {
   createWindow();
   initUpdater(mainWindow);
   setupNotifications(mainWindow);
+  setupFileSorter();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

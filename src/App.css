@@ -121,3 +121,367 @@
     align-items: center;
   }
 }
+
+/* FileSorter Styles */
+.file-sorter {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+}
+
+.file-sorter-idle,
+.file-sorter-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.idle-icon,
+.complete-icon {
+  font-size: 72px;
+  margin-bottom: 24px;
+}
+
+.file-sorter-idle h2,
+.file-sorter-complete h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.file-sorter-idle p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 400px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.select-folder-btn {
+  padding: 16px 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: white;
+  transition: all 0.2s;
+}
+
+.select-folder-btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.select-folder-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sorter-error {
+  margin-top: 16px;
+  padding: 12px 24px;
+  background-color: var(--notification-error);
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.sorter-header {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.sorter-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.folder-name {
+  font-size: 13px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+}
+
+.file-counter {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.file-preview-area {
+  width: 100%;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.file-thumbnail {
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.file-icon-large {
+  font-size: 96px;
+  padding: 48px;
+}
+
+.file-icon-large .file-icon {
+  font-size: 96px;
+}
+
+.file-details {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.file-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.file-meta {
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.meta-separator {
+  color: var(--border-color);
+}
+
+.file-actions {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 140px;
+}
+
+.action-btn.delete {
+  background-color: #fff0f0;
+  color: var(--notification-error);
+  border-color: #ffd4d4;
+}
+
+.action-btn.delete:hover {
+  background-color: var(--notification-error);
+  color: white;
+  border-color: var(--notification-error);
+  transform: translateY(-2px);
+}
+
+.action-btn.keep {
+  background-color: #f0fff4;
+  color: var(--notification-success);
+  border-color: #c6f6d5;
+}
+
+.action-btn.keep:hover {
+  background-color: var(--notification-success);
+  color: white;
+  border-color: var(--notification-success);
+  transform: translateY(-2px);
+}
+
+.action-icon {
+  font-size: 24px;
+}
+
+.action-label {
+  font-size: 16px;
+}
+
+.action-key {
+  font-size: 12px;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.sorter-hints {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Complete screen */
+.folder-path {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  word-break: break-all;
+}
+
+.summary {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.summary-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.summary-item.kept .summary-number {
+  color: var(--notification-success);
+}
+
+.summary-item.deleted .summary-number {
+  color: var(--notification-error);
+}
+
+.summary-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.complete-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.sort-another-btn,
+.back-btn {
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sort-another-btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.sort-another-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.back-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.back-btn:hover {
+  background-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+/* Zoom */
+.file-thumbnail.clickable {
+  cursor: zoom-in;
+}
+
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+.zoom-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.zoom-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.zoom-close:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}

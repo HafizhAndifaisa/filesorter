@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Dashboard from './components/Dashboard';
+import FileSorter from './components/FileSorter';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [updateInfo, setUpdateInfo] = useState(null);
   const [notifications, setNotifications] = useState([]);
+  const [sortingMode, setSortingMode] = useState(false);
 
   useEffect(() => {
     loadAppInfo();
@@ -93,6 +95,14 @@ function App() {
     }
   };
 
+  const handleStartSorting = () => {
+    setSortingMode(true);
+  };
+
+  const handleExitSorting = () => {
+    setSortingMode(false);
+  };
+
   return (
     <div className={`app ${theme}`}>
       <header className="app-header">
@@ -108,11 +118,16 @@ function App() {
       </header>
 
       <main className="app-main">
-        <Dashboard
-          showNotification={showNotification}
-          updateInfo={updateInfo}
-          onInstallUpdate={handleInstallUpdate}
-        />
+        {sortingMode ? (
+          <FileSorter onExit={handleExitSorting} />
+        ) : (
+          <Dashboard
+            showNotification={showNotification}
+            updateInfo={updateInfo}
+            onInstallUpdate={handleInstallUpdate}
+            onStartSorting={handleStartSorting}
+          />
+        )}
       </main>
 
       <div className="notifications-container">
